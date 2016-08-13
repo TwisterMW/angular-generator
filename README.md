@@ -7,11 +7,9 @@ Generates an AngularJS component, creating all related files (Controller, filter
 
 ## Installation
 - Clone repo from [GitHub](git@github.com:TwisterMW/angular-generator.git)
-- Do a npm install & bower install:
+- Do a npm install:
 	```
 	$ npm install
-
-	$ bower install
 	```
 
 ## Usage
