@@ -3,7 +3,7 @@
 
 	angular
 		.module('<%= data.modulename %>')
-		.directive('<% data.directivename %>', <%= data.directivename %>);
+		.directive('<%= data.directivename %>', <%= data.directivename %>);
 
 		function <%= data.directivename %>(){
 

@@ -1,6 +1,6 @@
 {
   "name": "twistermw-angular-component-generator",
-  "version": "1.0.5-1",
+  "version": "1.0.5-2",
   "description": "Generates an AngularJS component, creating all related files (Controller, filter, module, service, spec for UT)",
   "homepage": "https://github.com/TwisterMW/angular-generator",
   "author": {
