@@ -60,7 +60,7 @@
         writing: function(){
             var params = this.data;
 
-            camelize = function camelize(str) {
+            function camelize(str) {
                 return str.replace(/\W+(.)/g, function(match, chr){
                     return chr.toUpperCase();
                 });
@@ -128,7 +128,7 @@
                 params.viewname = params.name.toLowerCase();
             
                 this.fs.copyTpl(
-                    this.templatePath('view-tpl.js'),
+                    this.templatePath('view-tpl.html'),
                     this.destinationPath(params.pathname + '/components/' + params.name + '/' + params.name + '-tpl.html'),
                     { data: params}
                 );
