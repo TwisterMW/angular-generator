@@ -60,7 +60,7 @@
         writing: function(){
             var params = this.data;
 
-            camelize = function camelize(str) {
+            function camelize(str) {
                 return str.replace(/\W+(.)/g, function(match, chr){
                     return chr.toUpperCase();
                 });
