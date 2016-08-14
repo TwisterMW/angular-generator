@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/TwisterMW/angular-generator.svg?branch=master)](https://travis-ci.org/TwisterMW/angular-generator)
 [![npm version](https://badge.fury.io/js/twistermw-angular-component-generator.svg)](https://badge.fury.io/js/twistermw-angular-component-generator)
 
 # AngularJS Component Generator
