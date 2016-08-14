@@ -9,7 +9,7 @@
 		// Declaration
 		var service = {
 			init: init
-		}
+		};
 
 		return service;
 
