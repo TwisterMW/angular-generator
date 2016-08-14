@@ -2,10 +2,10 @@
 	'use-strict';
 
 	angular
-		.module('<%= data.modulename %>', [])
-		.controller('<%= data.controllername %>', <%= data.controllername %>);
+		.module('App.main')
+		.controller('mainController', mainController);
 
-	function <%= data.controllername %>(){
+	function mainController(){
 		var vm = this;
 
 		// Declaration

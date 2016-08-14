@@ -2,6 +2,6 @@
 	'use strict';
 	
 	angular
-		.module('<%= data.modulename %>', []);
+		.module('App.main', []);
 
 })();

@@ -7,11 +7,11 @@
 
 	function <%= data.servicename %>(){
 		// Declaration
-		var <%= data.servicename %> = {
+		var service = {
 			init: init
-		}
+		};
 
-		return <%= data.servicename %>;
+		return service;
 
 		// Definition
 		function init(){
