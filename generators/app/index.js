@@ -11,6 +11,11 @@
             console.log(yosay('Hello, this is an AngularJS component generator'));
 
             return this.prompt([{
+                store: true,
+                type: 'input',
+                name: 'pathname',
+                message: 'Enter the name which will contain components folder'
+            },{
                 type: 'input',
                 name: 'name',
                 message: 'Enter the component name'
@@ -58,15 +63,18 @@
         },
         writing: function(){
             var params = this.data;
+            params.includes = [];
 
             if(params.includings.indexOf('includeController') !== -1){
                 params.controllername = params.name.toLowerCase() + "Controller";
             
                 this.fs.copyTpl(
                     this.templatePath('controller-tpl.js'),
-                    this.destinationPath('components/' + params.name + '/' + params.name + '-controller.js'),
+                    this.destinationPath(params.pathname + '/components/' + params.name + '/' + params.name + '-controller.js'),
                     { data: params}
                 );
+
+                params.includes.push(params.controllername + ".js");
 
                 console.log('Copying 1 of ' + params.includings.length + ': ' + chalk.bold.green('--SUCCESS--'));
             }
@@ -76,9 +84,11 @@
             
                 this.fs.copyTpl(
                     this.templatePath('service-tpl.js'),
-                    this.destinationPath('components/' + params.name + '/' + params.name + '-service.js'),
+                    this.destinationPath(params.pathname + '/components/' + params.name + '/' + params.name + '-service.js'),
                     { data: params}
                 );
+
+                params.includes.push(params.servicename + ".js");
 
                 console.log('Copying 2 of ' + params.includings.length + ': ' + chalk.bold.green('--SUCCESS--'));
             }
