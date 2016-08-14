@@ -63,7 +63,8 @@
         },
         writing: function(){
             var params = this.data;
-            params.includes = [];
+            var path = "./index.html";
+            var file = this.readFileAsString(path);
 
             if(params.includings.indexOf('includeController') !== -1){
                 params.controllername = params.name.toLowerCase() + "Controller";
@@ -74,7 +75,7 @@
                     { data: params}
                 );
 
-                params.includes.push(params.controllername + ".js");
+                file = file.replace('<!-- endbuild -->', '<script src="' + params.pathname + '/components/' + params.name + '/' + params.name + '-controller.js"></script><br /><!-- endbuild -->');
 
                 console.log('Copying 1 of ' + params.includings.length + ': ' + chalk.bold.green('--SUCCESS--'));
             }
@@ -88,10 +89,12 @@
                     { data: params}
                 );
 
-                params.includes.push(params.servicename + ".js");
+                file = file.replace('<!-- endbuild -->', '<script src="' + params.pathname + '/components/' + params.name + '/' + params.name + '-service.js"></script><br /><!-- endbuild -->');
 
                 console.log('Copying 2 of ' + params.includings.length + ': ' + chalk.bold.green('--SUCCESS--'));
             }
+
+            this.write(path, file);
         }
     });
 
