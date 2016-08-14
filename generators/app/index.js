@@ -60,14 +60,6 @@
         writing: function(){
             var params = this.data;
 
-            function camelize(str) {
-                return str.replace(/\W+(.)/g, function(match, chr){
-                    return chr.toUpperCase();
-                });
-            };
-
-            params.name = camelize(params.name);
-
             this.fs.copyTpl(
                 this.templatePath('module-tpl.js'),
                 this.destinationPath(params.pathname + '/components/' + params.name + '/' + params.name + '-module.js'),
@@ -77,7 +69,7 @@
             console.log('Copying module...: ' + chalk.bold.green('--SUCCESS--'));
 
             if(params.includings.indexOf('includeController') !== -1){
-                params.controllername = params.name.toLowerCase() + "Controller";
+                params.controllername = params.name + "Controller";
             
                 this.fs.copyTpl(
                     this.templatePath('controller-tpl.js'),
@@ -89,7 +81,7 @@
             }
 
             if(params.includings.indexOf('includeService') !== -1){
-                params.servicename = params.name.toLowerCase() + "Factory";
+                params.servicename = params.name + "Factory";
             
                 this.fs.copyTpl(
                     this.templatePath('service-tpl.js'),
@@ -101,7 +93,7 @@
             }
 
             if(params.includings.indexOf('includeDirective') !== -1){
-                params.directivename = params.name.toLowerCase() + "Dir";
+                params.directivename = params.name + "Dir";
             
                 this.fs.copyTpl(
                     this.templatePath('directive-tpl.js'),
@@ -125,7 +117,7 @@
             }
 
             if(params.includings.indexOf('includeView') !== -1){
-                params.viewname = params.name.toLowerCase();
+                params.viewname = params.name.toUpperCase();
             
                 this.fs.copyTpl(
                     this.templatePath('view-tpl.html'),
