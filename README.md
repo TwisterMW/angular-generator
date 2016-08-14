@@ -16,4 +16,6 @@ Generates an AngularJS component, creating all related files (Controller, filter
 	```
 
 ## Usage
-(ToDo)
+If we run at console this command: ```$ yo angular-component``` we'll be asked for a folder to deploy the generated components. The next step is choose the module name, and finally we can select all kind of angular files to be generated using the data inputed before.
+
+`**NOTE:** If you create diferent modules for each component that you generate, you must include the module dependency on 'app/app.routes.js' file.`
