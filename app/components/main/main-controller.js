@@ -2,7 +2,7 @@
 	'use-strict';
 
 	angular
-		.module('App.main')
+		.module('App.main', [])
 		.controller('mainController', mainController);
 
 	function mainController(){
@@ -13,7 +13,7 @@
 
 		// Definition
 		function init(){
-
+			return 2+2; // For testing case
 		}
 
 		vm.init();

@@ -120,7 +120,7 @@
                 console.log('Copying HTML view...: ' + chalk.bold.green('--SUCCESS--'));
             }
 
-            this.spawnCommand('grunt', ['includeSource']);
+            if(this.fs.exists('./Gruntfile.js')) this.spawnCommand('grunt', ['includeSource']);
         }
     });
 
