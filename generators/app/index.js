@@ -60,14 +60,6 @@
         writing: function(){
             var params = this.data;
 
-            this.fs.copyTpl(
-                this.templatePath('module-tpl.js'),
-                this.destinationPath(params.pathname + '/components/' + params.name + '/' + params.name + '-module.js'),
-                { data: params}
-            );
-
-            console.log('Copying module...: ' + chalk.bold.green('--SUCCESS--'));
-
             if(params.includings.indexOf('includeController') !== -1){
                 params.controllername = params.name + "Controller";
             
@@ -127,6 +119,8 @@
 
                 console.log('Copying HTML view...: ' + chalk.bold.green('--SUCCESS--'));
             }
+
+            this.spawnCommand('grunt', ['includeSource']);
         }
     });
 
