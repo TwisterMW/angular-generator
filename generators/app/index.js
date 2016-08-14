@@ -2,9 +2,9 @@
     'use strict';
 
     //Require dependencies
-    var yeoman = require('yeoman-generator');
     var chalk = require('chalk');
     var yosay = require('yosay');
+    var yeoman = require('yeoman-generator');
 
     module.exports = yeoman.Base.extend({
         prompting: function() {
@@ -38,19 +38,15 @@
                     value: 'includeService',
                     checked: true,
                   },{
-                    name: 'Filter',
-                    value: 'includeFilter',
-                    checked: false,
-                  },{
                     name: 'Directive',
                     value: 'includeDirective',
                     checked: false,
                   },{
-                    name: 'UT Specfile',
+                    name: 'Specfile (UT)',
                     value: 'includeSpecs',
                     checked: false,
                   },{
-                    name: 'HTML View file',
+                    name: 'View file (HTML)',
                     value: 'includeView',
                     checked: true
                   }]
@@ -63,8 +59,22 @@
         },
         writing: function(){
             var params = this.data;
-            var path = "./index.html";
-            var file = this.readFileAsString(path);
+
+            camelize = function camelize(str) {
+                return str.replace(/\W+(.)/g, function(match, chr){
+                    return chr.toUpperCase();
+                });
+            };
+
+            params.name = camelize(params.name);
+
+            this.fs.copyTpl(
+                this.templatePath('module-tpl.js'),
+                this.destinationPath(params.pathname + '/components/' + params.name + '/' + params.name + '-module.js'),
+                { data: params}
+            );
+
+            console.log('Copying module...: ' + chalk.bold.green('--SUCCESS--'));
 
             if(params.includings.indexOf('includeController') !== -1){
                 params.controllername = params.name.toLowerCase() + "Controller";
@@ -75,9 +85,7 @@
                     { data: params}
                 );
 
-                file = file.replace('<!-- endbuild -->', '<script src="' + params.pathname + '/components/' + params.name + '/' + params.name + '-controller.js"></script><br /><!-- endbuild -->');
-
-                console.log('Copying 1 of ' + params.includings.length + ': ' + chalk.bold.green('--SUCCESS--'));
+                console.log('Copying controller...: ' + chalk.bold.green('--SUCCESS--'));
             }
 
             if(params.includings.indexOf('includeService') !== -1){
@@ -89,12 +97,44 @@
                     { data: params}
                 );
 
-                file = file.replace('<!-- endbuild -->', '<script src="' + params.pathname + '/components/' + params.name + '/' + params.name + '-service.js"></script><br /><!-- endbuild -->');
-
-                console.log('Copying 2 of ' + params.includings.length + ': ' + chalk.bold.green('--SUCCESS--'));
+                console.log('Copying factory...: ' + chalk.bold.green('--SUCCESS--'));
             }
 
-            this.write(path, file);
+            if(params.includings.indexOf('includeDirective') !== -1){
+                params.directivename = params.name.toLowerCase() + "Dir";
+            
+                this.fs.copyTpl(
+                    this.templatePath('directive-tpl.js'),
+                    this.destinationPath(params.pathname + '/components/' + params.name + '/' + params.name + '-directive.js'),
+                    { data: params}
+                );
+
+                console.log('Copying directive...: ' + chalk.bold.green('--SUCCESS--'));
+            }
+
+            if(params.includings.indexOf('includeSpecs') !== -1){
+                params.specsname = params.name.toLowerCase();
+            
+                this.fs.copyTpl(
+                    this.templatePath('specs-tpl.js'),
+                    this.destinationPath(params.pathname + '/components/' + params.name + '/' + params.name + '-specs.js'),
+                    { data: params}
+                );
+
+                console.log('Copying specsfile...: ' + chalk.bold.green('--SUCCESS--'));
+            }
+
+            if(params.includings.indexOf('includeView') !== -1){
+                params.viewname = params.name.toLowerCase();
+            
+                this.fs.copyTpl(
+                    this.templatePath('view-tpl.js'),
+                    this.destinationPath(params.pathname + '/components/' + params.name + '/' + params.name + '-tpl.html'),
+                    { data: params}
+                );
+
+                console.log('Copying HTML view...: ' + chalk.bold.green('--SUCCESS--'));
+            }
         }
     });
 
