@@ -1,0 +1,24 @@
+{
+  "name": "twistermw-angular-component-generator",
+  "description": "Generates an AngularJS component, creating all related files (Controller, filter, module, service, spec for UT)",
+  "main": "index.html",
+  "authors": [
+    "TwisterMW <marc.hernandez@twiscript.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/TwisterMW/angular-generator",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "dist/",
+    "docs/",
+    ".tmp"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}

@@ -3,11 +3,21 @@
 
 	describe('main - Test file', function(){
 
-		beforeEach(angular.mock.module('App.main'));
+		var $controller;
 
-		describe('First testing case when...', function(){
-			it('should...', function(){
+		beforeEach(module('App.main'));
 
+		beforeEach(inject(function(_$controller_){
+			$controller = _$controller_;
+		}));
+
+		describe('First testing case (2+2)...', function(){
+			it('should return proper value (4)...', function(){
+				var $scope = {};
+				var controller = $controller('mainController', { $scope: $scope });
+				var res = controller.init();
+
+				expect(res).toEqual(4);
 			});
 		});
 

@@ -7,11 +7,11 @@
 
 	function mainFactory(){
 		// Declaration
-		var mainFactory = {
+		var service = {
 			init: init
-		}
+		};
 
-		return mainFactory;
+		return service;
 
 		// Definition
 		function init(){

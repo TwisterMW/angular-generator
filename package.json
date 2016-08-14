@@ -18,7 +18,16 @@
   "dependencies": {
     "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
-    "yosay": "^1.0.0"
+    "yosay": "^1.0.0",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2"
   },
-  "repository": "TwisterMW/generator-angular-component"
+  "repository": "TwisterMW/generator-angular-component",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2"
+  }
 }
