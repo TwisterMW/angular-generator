@@ -32,19 +32,19 @@
                   [{
                     name: 'Controller',
                     value: 'includeController',
-                    checked: true,
+                    checked: true
                   },{
                     name: 'Service',
                     value: 'includeService',
-                    checked: true,
+                    checked: true
                   },{
                     name: 'Directive',
                     value: 'includeDirective',
-                    checked: false,
+                    checked: false
                   },{
                     name: 'Specfile (UT)',
                     value: 'includeSpecs',
-                    checked: false,
+                    checked: false
                   },{
                     name: 'View file (HTML)',
                     value: 'includeView',
