@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/TwisterMW/angular-generator.svg?branch=master)](https://travis-ci.org/TwisterMW/angular-generator)
-[![npm version](https://badge.fury.io/js/twistermw-angular-component-generator.svg)](https://badge.fury.io/js/twistermw-angular-component-generator)
+[![npm version](https://badge.fury.io/js/generator-twistermw-angular-component.svg)](https://badge.fury.io/js/generator-twistermw-angular-component)
 
 # AngularJS Component Generator
 Generates an AngularJS component, creating all related files (Controller, filter, module, servic e, spec for UT). Combined with the AngularJS Seed project: [AngularJS Seed Project](https://github.com/TwisterMW/angular-fc-seedproject.git)
